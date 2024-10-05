@@ -1,4 +1,4 @@
-// jshint esversion:6
+ 
 import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
@@ -12,8 +12,7 @@ const postSchema = new mongoose.Schema({
   title: String,
   content: String,
 });
-
-// Wrap database connection in an async function
+ 
 async function connectDB() {
   try {
     await mongoose.connect(process.env.MONGODB);
@@ -22,8 +21,7 @@ async function connectDB() {
     console.error("MongoDB connection error:", error);
   }
 }
-
-// Call the connectDB function
+ 
 connectDB();
 
 const Posts = mongoose.model('Post', postSchema);
@@ -49,7 +47,7 @@ app.get("/", async (req, res) => {
   }
 });
 
-// Other route handlers...
+ 
 app.get("/about", (req, res) => {
   res.render("about", { about: aboutContent });
 });
@@ -100,5 +98,5 @@ app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });
 
-// Export the app instance correctly
+ 
 export default app; 
