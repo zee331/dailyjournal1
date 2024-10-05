@@ -96,7 +96,5 @@ app.listen(PORT, function() {
 });
 
 
-export default function(app) {
-    // your code
-}
+export default function(app); 
 
